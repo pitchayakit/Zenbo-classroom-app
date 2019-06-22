@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.asus.classroommode.MainActivity">
+
+    <TextView
+        android:id="@+id/textview_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="424dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/dialog_example"
+        android:textAlignment="textStart"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btPresentation"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="144dp"
+        android:text="@string/button_presentation"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGroupDiscussion"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="620dp"
+        android:layout_marginTop="144dp"
+        android:text="@string/button_group_discussion"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btAfterClass"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="392dp"
+        android:text="@string/button_after_class"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGoogleClassroomApp"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+
+        android:layout_marginStart="616dp"
+        android:layout_marginTop="392dp"
+        android:text="@string/zenbo_front"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

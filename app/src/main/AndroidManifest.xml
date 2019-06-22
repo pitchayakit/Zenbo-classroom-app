@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.asus.classroommode">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/RobotDevTheme">
+        <meta-data
+            android:name="zenbo_ds_domainuuid"
+            android:value="818EBC176FCC46FE82875EC3104DF20B" />
+        <meta-data
+            android:name="zenbo_ds_version_818EBC176FCC46FE82875EC3104DF20B"
+            android:value="0.0.1" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.asus.intent.category.ZENBO" />
+                <category android:name="com.asus.intent.category.ZENBO_LAUNCHER" />
+
+                <!-- please comment out the following line when you want to launch to Zenbo App Store -->
+                <!-- See Zenbo Developer Web: Zenbo-SDK-Getting-Started: Important notes on Zenbo APP developing -->
+                <category android:name="android.intent.category.LAUNCHER" />
+                <data android:name="com.asus.intent.data.MIN_ROBOT_API_LEVEL.1" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GroupDiscusstion"
+            android:label="@string/title_activity_groub_discusstion"></activity>
+    </application>
+
+</manifest>

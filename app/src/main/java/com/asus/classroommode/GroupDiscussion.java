@@ -20,7 +20,7 @@ import com.robot.asus.robotactivity.RobotActivity;
 
 import org.json.JSONObject;
 
-public class GroupDiscusstion extends RobotActivity {
+public class GroupDiscussion extends RobotActivity {
     RobotAPI mRobotAPI;
     static RobotAPI mRobotAPIStatic;
     public final static String TAG = "ZenboDialogSample";
@@ -210,7 +210,7 @@ public class GroupDiscusstion extends RobotActivity {
         }
     };
 
-    public GroupDiscusstion()  {
+    public GroupDiscussion()  {
         super(robotCallback, robotListenCallback);
     }
 

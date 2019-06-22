@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.asus.robotframework.API.MotionControl;
 import com.asus.robotframework.API.RobotAPI;
@@ -22,8 +21,6 @@ import com.asus.robotframework.API.SpeakConfig;
 import com.robot.asus.robotactivity.RobotActivity;
 
 import org.json.JSONObject;
-
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -77,7 +74,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btGroupDiscussion.getText().toString());
                 groupDiscussionActivity();
-                startActivity(new Intent(MainActivity.this, GroupDiscusstion.class));
+                startActivity(new Intent(MainActivity.this, GroupDiscussion.class));
                 //mRobotAPIStatic.robot.setExpression(RobotFace.HAPPY);
             }
         });
@@ -199,7 +196,7 @@ public class MainActivity extends RobotActivity {
             if(sIntentionID.equals("helloWorld")) {
                 String resultClassroomMode = RobotUtil.queryListenResultJson(jsonObject, "classroomMode", null);
                 Intent googleClassroomApp = googleClassroomAppContext.getPackageManager().getLaunchIntentForPackage("com.google.android.apps.classroom");
-                Intent groupDiscussionActivity = new Intent(groupDiscussionContext, GroupDiscusstion.class);
+                Intent groupDiscussionActivity = new Intent(groupDiscussionContext, GroupDiscussion.class);
 
                 if(resultClassroomMode != null && !resultClassroomMode.equals("na") && (resultClassroomMode.equals("presentation_mode") || resultClassroomMode.equals("sharing_mode"))) {
                     presentationActivity();

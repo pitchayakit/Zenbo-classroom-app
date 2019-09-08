@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".GroupDiscussion"
-            android:label="@string/title_activity_groub_discusstion"></activity>
+            android:label="@string/title_activity_group_discussion"></activity>
     </application>
 
 </manifest>

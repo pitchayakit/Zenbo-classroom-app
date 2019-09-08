@@ -7,7 +7,6 @@
     <string name="button_group_discussion">Group discussion</string>
     <string name="button_sharing">Sharing</string>
     <string name="button_after_class">After class</string>
-    <string name="title_activity_groub_discusstion">groub_discusstion</string>
     <string name="google_classroom_app">Google classroom app</string>
 
     <string name="group_1">Group 1</string>
@@ -18,5 +17,4 @@
     <string name="front">In front of room</string>
     <string name="zenbo_front">Move Zenbo to front of room</string>
     <string name="title_activity_group_discussion">GroupDiscussion</string>
-    <string name="title_activity_group_discusstion">GroupDiscusstion</string>
 </resources>

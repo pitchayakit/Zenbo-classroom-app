@@ -10,25 +10,11 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.asus.classroommode.MainActivity">
 
-    <TextView
-        android:id="@+id/textview_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="424dp"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="@string/dialog_example"
-        android:textAlignment="textStart"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btPresentation"
         android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="144dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="75dp"
         android:text="@string/button_presentation"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,35 +23,178 @@
     <Button
         android:id="@+id/btGroupDiscussion"
         android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="620dp"
-        android:layout_marginTop="144dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="75dp"
         android:text="@string/button_group_discussion"
         android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btPresentation"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btAfterClass"
         android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="392dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="75dp"
         android:text="@string/button_after_class"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btGroupDiscussion"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFanLevelThree"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="280dp"
+        android:text="Level three"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btGoogleClassroomApp"
-        android:layout_width="400dp"
-        android:layout_height="200dp"
+        android:id="@+id/btFanLevelTwo"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="280dp"
+        android:text="Level Two"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btFanLevelThree"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_marginStart="616dp"
-        android:layout_marginTop="392dp"
-        android:text="@string/zenbo_front"
+    <Button
+        android:id="@+id/btFanLevelOne"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="280dp"
+        android:text="Level one"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btFanLevelTwo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFanTurnOff"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="280dp"
+        android:text="Turn off"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btFanLevelOne"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFanRotate"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="280dp"
+        android:text="Rotate"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btFanTurnOff"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btInFront"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="460dp"
+        android:text="In front of room"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGroup1"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="460dp"
+        android:text="Group 1"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btInFront"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGroup2"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="460dp"
+        android:text="Group 2"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btGroup1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGroup3"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="10dp"
+        android:text="Group 3"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btInFront" />
+
+    <Button
+        android:id="@+id/btGroup4"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Group 4"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btGroup3"
+        app:layout_constraintTop_toBottomOf="@+id/btGroup1" />
+
+    <Button
+        android:id="@+id/btGroup5"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Group 5"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btGroup4"
+        app:layout_constraintTop_toBottomOf="@+id/btGroup2" />
+
+    <TextView
+        android:id="@+id/textview_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="424dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/dialog_example"
+        android:textAlignment="textStart"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFanControl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="452dp"
+        android:layout_marginTop="160dp"
+        android:text="Fans control"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_info" />
+
+    <TextView
+        android:id="@+id/textViewZenboGoToLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="384dp"
+        android:layout_marginTop="390dp"
+        android:text="Zenbo go to location"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textview_info" />
 
 </android.support.constraint.ConstraintLayout>

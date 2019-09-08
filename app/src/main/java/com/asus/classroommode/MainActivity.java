@@ -37,7 +37,17 @@ public class MainActivity extends RobotActivity {
     private static Button btPresentation;
     private static Button btGroupDiscussion;
     private static Button btAfterClass;
-    private static Button btGoFront;
+    private static Button btFanLevelThree;
+    private static Button btFanLevelTwo;
+    private static Button btFanLevelOne;
+    private static Button btFanTurnOff;
+    private static Button btFanRotate;
+    private static Button btInFront;
+    private static Button btGroup1;
+    private static Button btGroup2;
+    private static Button btGroup3;
+    private static Button btGroup4;
+    private static Button btGroup5;
 
     private static Context googleClassroomAppContext;
     private static Context groupDiscussionContext;
@@ -62,8 +72,6 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btPresentation.getText().toString());
                 presentationActivity();
-                //robotAPI.robot.speak("I’m going to in front of room");
-                //robotAPI.motion.goTo("In front of room");
                 robotAPI.motion.remoteControlHead(MotionControl.Direction.Head.UP);
                 startActivity(googleClassroomApp);
             }
@@ -88,13 +96,97 @@ public class MainActivity extends RobotActivity {
             }
         });
 
-        btGoFront = findViewById(R.id.btGoogleClassroomApp);
-        btGoFront.setOnClickListener(new View.OnClickListener() {
+        btFanLevelThree = findViewById(R.id.btFanLevelThree);
+        btFanLevelThree.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                new clickHttpPost().execute(btGoFront.getText().toString());
-                robotAPI.robot.speak("I’m going to in front of room");
+                new clickHttpPost().execute(btFanLevelThree.getText().toString());
+                new deviceHttpPost().execute("5","hight");
+            }
+        });
+
+        btFanLevelTwo = findViewById(R.id.btFanLevelTwo);
+        btFanLevelTwo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btFanLevelTwo.getText().toString());
+                new deviceHttpPost().execute("6","hight");
+            }
+        });
+
+        btFanLevelOne = findViewById(R.id.btFanLevelOne);
+        btFanLevelOne.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btFanLevelOne.getText().toString());
+                new deviceHttpPost().execute("7","hight");
+            }
+        });
+
+        btFanTurnOff = findViewById(R.id.btFanTurnOff);
+        btFanTurnOff.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btFanTurnOff.getText().toString());
+                new deviceHttpPost().execute("8","hight");
+            }
+        });
+
+        btFanRotate = findViewById(R.id.btFanRotate);
+        btFanRotate.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btFanRotate.getText().toString());
+                new deviceHttpPost().execute("9","hight");
+            }
+        });
+
+        btInFront = findViewById(R.id.btInFront);
+        btInFront.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btInFront.getText().toString());
                 robotAPI.motion.goTo("In front of room");
-                //startActivity(googleClassroomApp);
+                robotAPI.robot.speak("I’m going to in front of room");
+            }
+        });
+
+        btGroup1 = findViewById(R.id.btGroup1);
+        btGroup1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btGroup1.getText().toString());
+                robotAPI.motion.goTo("Group one");
+                robotAPI.robot.speak("I’m going to group one");
+            }
+        });
+
+        btGroup2 = findViewById(R.id.btGroup2);
+        btGroup2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btGroup2.getText().toString());
+                robotAPI.motion.goTo("Group two");
+                robotAPI.robot.speak("I’m going to group two");
+            }
+        });
+
+        btGroup3 = findViewById(R.id.btGroup3);
+        btGroup3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btGroup3.getText().toString());
+                robotAPI.motion.goTo("Group three");
+                robotAPI.robot.speak("I’m going to group three");
+            }
+        });
+
+        btGroup4 = findViewById(R.id.btGroup4);
+        btGroup4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btGroup4.getText().toString());
+                robotAPI.motion.goTo("Group four");
+                robotAPI.robot.speak("I’m going to group four");
+            }
+        });
+
+        btGroup5 = findViewById(R.id.btGroup5);
+        btGroup5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new clickHttpPost().execute(btGroup5.getText().toString());
+                robotAPI.motion.goTo("Group five");
+                robotAPI.robot.speak("I’m going to group five");
             }
         });
     }
@@ -112,7 +204,7 @@ public class MainActivity extends RobotActivity {
         robotAPI.robot.jumpToPlan(DOMAIN, "lanuchHelloWolrd_Plan");
 
         // listen user utterance
-        robotAPI.robot.speakAndListen("What is classroom mode right now", new SpeakConfig());
+        robotAPI.robot.speakAndListen("You can control following these command", new SpeakConfig());
         //robotAPI.robot.speak("What is classroom mode right now");
 
     }
@@ -200,8 +292,6 @@ public class MainActivity extends RobotActivity {
 
                 if(resultClassroomMode != null && !resultClassroomMode.equals("na") && (resultClassroomMode.equals("presentation_mode") || resultClassroomMode.equals("sharing_mode"))) {
                     presentationActivity();
-                    //mRobotAPIStatic.motion.goTo("In front of room");
-                    //mRobotAPIStatic.robot.speak("I’m going to in front of room");
                     mRobotAPIStatic.motion.remoteControlHead(MotionControl.Direction.Head.UP);
                     googleClassroomAppContext.startActivity(googleClassroomApp);
                 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Zenbo Classroom Mode</string>
 
-    <string name="dialog_example">Classroom mode</string>
+    <string name="dialog_example">Classroom time</string>
 
     <string name="button_presentation">Presentation / Sharing</string>
     <string name="button_group_discussion">Group discussion</string>

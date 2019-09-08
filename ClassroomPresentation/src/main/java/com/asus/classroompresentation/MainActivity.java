@@ -110,15 +110,6 @@ public class MainActivity extends RobotActivity {
             String sIntentionID = RobotUtil.queryListenResultJson(jsonObject, "IntentionId");
             Log.d(TAG, "Intention Id = " + sIntentionID);
 
-            if(sIntentionID.equals("helloWorld")) {
-                String sSluResultCity = RobotUtil.queryListenResultJson(jsonObject, "myCity1", null);
-                Log.d(TAG, "Result City = " + sSluResultCity);
-
-                if(sSluResultCity!= null) {
-                    mTextView.setText("You are now at " + sSluResultCity);
-                }
-            }
-
         }
 
         @Override

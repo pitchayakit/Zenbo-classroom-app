@@ -1,1 +1,1 @@
-include ':app', ':RobotActivityLibrary', ':classroompresentation'
+include ':app', ':RobotActivityLibrary', ':ClassroomPresentation'

@@ -101,6 +101,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanLevelThree.getText().toString());
                 new deviceHttpPost().execute("5","hight");
+                mRobotAPIStatic.robot.speak("OK. Fan tun on level three");
             }
         });
 
@@ -109,6 +110,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanLevelTwo.getText().toString());
                 new deviceHttpPost().execute("6","hight");
+                mRobotAPIStatic.robot.speak("OK. Fan tun on level two");
             }
         });
 
@@ -117,6 +119,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanLevelOne.getText().toString());
                 new deviceHttpPost().execute("7","hight");
+                mRobotAPIStatic.robot.speak("OK. Fan tun on level one");
             }
         });
 
@@ -125,14 +128,16 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanTurnOff.getText().toString());
                 new deviceHttpPost().execute("8","hight");
+                mRobotAPIStatic.robot.speak("OK. Fan tun off");
             }
         });
 
-        btFanRotate = findViewById(R.id.btFanRotate);
+        btFanRotate = findViewById(R.id.btFanRotation);
         btFanRotate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanRotate.getText().toString());
                 new deviceHttpPost().execute("9","hight");
+                mRobotAPIStatic.robot.speak("OK. Fan rotation");
             }
         });
 
@@ -285,7 +290,7 @@ public class MainActivity extends RobotActivity {
                 String resultClassroomMode = RobotUtil.queryListenResultJson(jsonObject, "output_context", null);
                 Log.d(TAG, "First result = " + resultClassroomMode);
             }
-            if(sIntentionID.equals("helloWorld")) {
+            else if(sIntentionID.equals("helloWorld")) {
                 String resultClassroomMode = RobotUtil.queryListenResultJson(jsonObject, "classroomMode", null);
                 Intent googleClassroomApp = googleClassroomAppContext.getPackageManager().getLaunchIntentForPackage("com.google.android.apps.classroom");
                 Intent groupDiscussionActivity = new Intent(groupDiscussionContext, GroupDiscussion.class);
@@ -302,8 +307,48 @@ public class MainActivity extends RobotActivity {
                 else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("after_class_mode")) {
                     afterClassActivity();
                 }
-                else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("in_front")) {
-                    mRobotAPIStatic.motion.goTo("In front of room");
+
+                String resultGoToLocation = RobotUtil.queryListenResultJson(jsonObject, "goToLocation", null);
+                if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("in_front"))) {
+                    mRobotAPIStatic.motion.goTo("in front of room");
+                }
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_one"))) {
+                    mRobotAPIStatic.motion.goTo("group one");
+                }
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_two"))) {
+                    mRobotAPIStatic.motion.goTo("group two");
+                }
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_three"))) {
+                    mRobotAPIStatic.motion.goTo("group three");
+                }
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_four"))) {
+                    mRobotAPIStatic.motion.goTo("group four");
+                }
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_five"))) {
+                    mRobotAPIStatic.motion.goTo("group five");
+                }
+
+                String resultFanControl = RobotUtil.queryListenResultJson(jsonObject, "fanControl", null);
+                Log.d(TAG, "resultFanControl = " + resultFanControl);
+                if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_three"))) {
+                    new deviceHttpPost().execute("5","hight");
+                    mRobotAPIStatic.robot.speak("OK. Fan tun on level three");
+                }
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_two"))) {
+                    new deviceHttpPost().execute("6","hight");
+                    mRobotAPIStatic.robot.speak("OK. Fan tun on level two");
+                }
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_one"))) {
+                    new deviceHttpPost().execute("7","hight");
+                    mRobotAPIStatic.robot.speak("OK. Fan tun on level one");
+                }
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_turn_off"))) {
+                    new deviceHttpPost().execute("8","hight");
+                    mRobotAPIStatic.robot.speak("OK. Fan turn off");
+                }
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_rotation"))) {
+                    new deviceHttpPost().execute("9","hight");
+                    mRobotAPIStatic.robot.speak("OK. Fan rotation");
                 }
             }
 

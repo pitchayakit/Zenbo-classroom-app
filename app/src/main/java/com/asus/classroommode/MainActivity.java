@@ -82,7 +82,6 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btGroupDiscussion.getText().toString());
                 groupDiscussionActivity();
-                startActivity(new Intent(MainActivity.this, GroupDiscussion.class));
                 //mRobotAPIStatic.robot.setExpression(RobotFace.HAPPY);
             }
         });
@@ -302,7 +301,6 @@ public class MainActivity extends RobotActivity {
                 }
                 else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("group_discussion_mode")) {
                     groupDiscussionActivity();
-                    groupDiscussionContext.startActivity(groupDiscussionActivity);
                 }
                 else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("after_class_mode")) {
                     afterClassActivity();

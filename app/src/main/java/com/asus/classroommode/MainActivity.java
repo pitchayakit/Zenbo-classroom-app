@@ -91,7 +91,6 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btAfterClass.getText().toString());
                 afterClassActivity();
-                mRobotAPIStatic.robot.setExpression(RobotFace.HAPPY);
             }
         });
 

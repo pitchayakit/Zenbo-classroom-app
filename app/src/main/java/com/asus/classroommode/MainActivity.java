@@ -82,7 +82,6 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btGroupDiscussion.getText().toString());
                 groupDiscussionActivity();
-                //mRobotAPIStatic.robot.setExpression(RobotFace.HAPPY);
             }
         });
 
@@ -291,7 +290,6 @@ public class MainActivity extends RobotActivity {
             else if(sIntentionID.equals("helloWorld")) {
                 String resultClassroomMode = RobotUtil.queryListenResultJson(jsonObject, "classroomMode", null);
                 Intent googleClassroomApp = googleClassroomAppContext.getPackageManager().getLaunchIntentForPackage("com.google.android.apps.classroom");
-                Intent groupDiscussionActivity = new Intent(groupDiscussionContext, GroupDiscussion.class);
 
                 if(resultClassroomMode != null && !resultClassroomMode.equals("na") && (resultClassroomMode.equals("presentation_mode") || resultClassroomMode.equals("sharing_mode"))) {
                     presentationActivity();

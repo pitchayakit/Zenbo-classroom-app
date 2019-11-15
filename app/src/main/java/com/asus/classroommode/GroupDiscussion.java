@@ -26,12 +26,7 @@ public class GroupDiscussion extends RobotActivity {
     public final static String TAG = "ZenboDialogSample";
     public final static String DOMAIN = "818EBC176FCC46FE82875EC3104DF20B";
 
-    private static Button btGroup1;
-    private static Button btGroup2;
-    private static Button btGroup3;
-    private static Button btGroup4;
-    private static Button btGroup5;
-    private static Button btFront;
+    private static Button btGroup1, btGroup2, btGroup3, btGroup4, btGroup5, btFront;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

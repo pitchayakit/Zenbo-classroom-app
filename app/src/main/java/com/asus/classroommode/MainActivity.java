@@ -50,7 +50,6 @@ public class MainActivity extends RobotActivity {
     private static Button btGroup5;
 
     private static Context googleClassroomAppContext;
-    private static Context groupDiscussionContext;
 
 
     @Override
@@ -63,7 +62,6 @@ public class MainActivity extends RobotActivity {
         setContentView(R.layout.activity_main);
 
         googleClassroomAppContext = this;
-        groupDiscussionContext = this;
 
         final Intent googleClassroomApp = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.classroom");
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.asus.robotframework.API.MotionControl;
@@ -55,6 +56,7 @@ public class MainActivity extends RobotActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         mRobotAPI = new RobotAPI(getApplicationContext(), robotCallback);
         mRobotAPIStatic = new RobotAPI(getApplicationContext(), robotCallback);
         Log.d(TAG, "onCreate: "+mRobotAPI);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ncu.ZenboFaceRecognition.CheckInCompleteActivity">
+
+    <Button
+        android:id="@+id/ContinueCheckIn"
+        android:layout_width="389dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/continue_check_in"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkInCompleteHeader" />
+
+    <TextView
+        android:id="@+id/checkInCompleteHeader"
+        android:layout_width="525dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/check_in_complete_header"
+        android:textAlignment="center"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

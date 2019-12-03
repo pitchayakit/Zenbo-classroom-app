@@ -23,4 +23,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     api files('../ZenboSDK/ZenboSDK.jar')
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation "com.android.support:appcompat-v7:27.0.2"
 }

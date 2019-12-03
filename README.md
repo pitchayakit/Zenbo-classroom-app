@@ -1,1 +1,5 @@
-# Zenbo-classroom-mode-app
+# Zenbo-classroom-app
+- Alarm
+- Classroom control
+- Face check in
+- SQCP app

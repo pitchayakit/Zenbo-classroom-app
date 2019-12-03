@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btGroup1"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/btGroup1"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btFirstHourSlide"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFirstHourSlide"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/btFirstHourSlide"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGroup2"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/btGroup2"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btFirstHourSlide" />
+
+    <Button
+        android:id="@+id/btGroup4"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/btGroup4"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btGroup2" />
+
+    <Button
+        android:id="@+id/btGroup5"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/btGroup5"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btGroup4"
+        app:layout_constraintTop_toBottomOf="@+id/btGroup3" />
+
+    <Button
+        android:id="@+id/btGroup3"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/btGroup3"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/btGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/btGroup1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

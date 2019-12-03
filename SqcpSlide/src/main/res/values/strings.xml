@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Zenbo combine slides</string>
+
+    <string name="btFirstHourSlide">Journal paper presentation</string>
+    <string name="btGroup1">SQCP group 1</string>
+    <string name="btGroup2">SQCP group 2</string>
+    <string name="btGroup3">SQCP group 3</string>
+    <string name="btGroup4">SQCP group 4</string>
+    <string name="btGroup5">SQCP group 5</string>
+    <string name="title_activity_alert">AlertActivity</string>
+
+    <string name="btBack">Back</string>
+</resources>

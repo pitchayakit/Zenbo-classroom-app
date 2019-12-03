@@ -1,1 +1,1 @@
-include ':app', ':RobotActivityLibrary'
+include ':ClassroomControl', ':RobotActivityLibrary'

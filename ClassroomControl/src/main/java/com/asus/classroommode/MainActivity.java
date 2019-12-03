@@ -73,7 +73,7 @@ public class MainActivity extends RobotActivity {
                 new clickHttpPost().execute(btPresentation.getText().toString());
                 presentationActivity();
                 robotAPI.motion.remoteControlHead(MotionControl.Direction.Head.UP);
-                startActivity(googleClassroomApp);
+                //startActivity(googleClassroomApp);
             }
         });
 

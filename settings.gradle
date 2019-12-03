@@ -1,1 +1,1 @@
-include ':ClassroomControl', ':RobotActivityLibrary'
+include ':ClassroomControl', ':RobotActivityLibrary', ':Alarm'

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Zenbo_alarm</string>
+    <string name="title_activity_presentation">PresentationActivity</string>
+    <string name="title_activity_group_discussion">GroupDiscussion</string>
+    <string name="title_activity_sharing">SharingActivity</string>
+
+    <string name="btBack">Back</string>
+</resources>

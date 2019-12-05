@@ -45,20 +45,8 @@ public class CheckInCompleteActivity extends RobotActivity {
 
         });
         robotAPI.robot.speak("OK I already updated you to attendance sheet.");
-        backToMainActivity();
     }
 
-    private void backToMainActivity() {
-        // 30 seconds countdown timer
-        new CountDownTimer(10000, 1000) {
-            public void onTick(long millisUntilFinished) {
-
-            }
-            public void onFinish() {
-                finish();
-            }
-        }.start();
-    }
 
     @Override
     protected void onResume() {

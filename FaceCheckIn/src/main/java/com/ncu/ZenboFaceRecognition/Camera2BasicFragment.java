@@ -1095,8 +1095,54 @@ public class Camera2BasicFragment extends Fragment
         protected void onPostExecute(String result) {
             Log.d(TAG, "imageHttpPost onPostExecute: "+result);
             Intent GroupsIntent = new Intent(getActivity(),CheckInCompleteActivity.class);
-            new attendanceSheetPost().execute("na","na");
+            new faceRecognitionHttpPost().execute(mFile.toString());
             startActivity(GroupsIntent);
+        }
+    }
+
+    public class faceRecognitionHttpPost extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... parameters) {
+            OkHttpClient client = new OkHttpClient();
+            String yourFilePath = parameters[0];
+            Log.d(TAG, "faceRecognitionHttpPost doInBackground: "+ mFileNameTimeStamp);
+            MediaType mediaType = MediaType.parse("image/jpg");
+            //String yourFilePath = "/storage/emulated/0/Android/data/com.ncu.zenbofacerecognition/files/pic.jpg";
+            File file = new File( yourFilePath );
+            //RequestBody body = RequestBody.create(mediaType, "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"file\"; filename=\"1574295948_pic.jpg\"\r\nContent-Type: image/jpeg\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--");
+            RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                    .addFormDataPart("file",mFileNameTimeStamp, RequestBody.create(mediaType, file)).build();
+
+            Request request = new Request.Builder()
+                    .url("http://facerecognition.pitchayakit.com/")
+                    .post(body)
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                Log.d(TAG, "faceRecognitionHttpPost doInBackground: success " + response);
+                return response.body().string();
+            } catch (Exception e) {
+                Log.d(TAG, "faceRecognitionHttpPost doInBackground: "+e);
+                e.printStackTrace();
+            }
+            return null;
+        }
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Log.d(TAG, "faceRecognitionHttpPost onPostExecute " + result);
+            JSONObject json = null;
+            try {
+                json = new JSONObject(result);
+                String name = json.getString("name");
+                new attendanceSheetPost().execute("na",name);
+            } catch (JSONException e) {
+                new attendanceSheetPost().execute("na","Error: "+ e);
+                e.printStackTrace();
+            }
+
+
         }
     }
 

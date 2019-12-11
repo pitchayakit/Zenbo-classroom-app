@@ -1095,7 +1095,7 @@ public class Camera2BasicFragment extends Fragment
         protected void onPostExecute(String result) {
             Log.d(TAG, "imageHttpPost onPostExecute: "+result);
             Intent GroupsIntent = new Intent(getActivity(),CheckInCompleteActivity.class);
-            new attendanceSheetPost().execute("na");
+            new attendanceSheetPost().execute("na","na");
             startActivity(GroupsIntent);
         }
     }
@@ -1105,8 +1105,9 @@ public class Camera2BasicFragment extends Fragment
         protected String doInBackground(String... parameters) {
             OkHttpClient client = new OkHttpClient();
             String group = parameters[0];
+            String name = parameters[1];
             MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-            RequestBody body = RequestBody.create(mediaType, "url=http://classroom.pitchayakit.com/hci_photo_check_in/photos/upload/"+mFileNameTimeStamp+"&group="+group);
+            RequestBody body = RequestBody.create(mediaType, "url=http://classroom.pitchayakit.com/hci_photo_check_in/photos/upload/"+mFileNameTimeStamp+"&group="+group+"&name="+name);
             Request request = new Request.Builder()
                     .url("http://classroom.pitchayakit.com/hci_photo_check_in/attendance_sheet/")
                     .post(body)

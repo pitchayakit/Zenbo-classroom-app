@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Zenbo combine slides</string>
 
-    <string name="btFirstHourSlide">Journal paper presentation</string>
+    <string name="btFirstHourSlide">Paper presentation</string>
     <string name="btGroup1">SQCP group 1</string>
     <string name="btGroup2">SQCP group 2</string>
     <string name="btGroup3">SQCP group 3</string>

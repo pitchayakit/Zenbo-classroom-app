@@ -1107,9 +1107,7 @@ public class Camera2BasicFragment extends Fragment
             String yourFilePath = parameters[0];
             Log.d(TAG, "faceRecognitionHttpPost doInBackground: "+ mFileNameTimeStamp);
             MediaType mediaType = MediaType.parse("image/jpg");
-            //String yourFilePath = "/storage/emulated/0/Android/data/com.ncu.zenbofacerecognition/files/pic.jpg";
             File file = new File( yourFilePath );
-            //RequestBody body = RequestBody.create(mediaType, "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"file\"; filename=\"1574295948_pic.jpg\"\r\nContent-Type: image/jpeg\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--");
             RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
                     .addFormDataPart("file",mFileNameTimeStamp, RequestBody.create(mediaType, file)).build();
 
@@ -1141,8 +1139,6 @@ public class Camera2BasicFragment extends Fragment
                 new attendanceSheetPost().execute("na","Error: "+ e);
                 e.printStackTrace();
             }
-
-
         }
     }
 

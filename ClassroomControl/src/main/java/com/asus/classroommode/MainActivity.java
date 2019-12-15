@@ -30,7 +30,6 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends RobotActivity {
-    RobotAPI mRobotAPI;
     static RobotAPI mRobotAPIStatic;
     public final static String TAG = "ZenboDialogSample";
     public final static String DOMAIN = "818EBC176FCC46FE82875EC3104DF20B";
@@ -57,23 +56,18 @@ public class MainActivity extends RobotActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        mRobotAPI = new RobotAPI(getApplicationContext(), robotCallback);
         mRobotAPIStatic = new RobotAPI(getApplicationContext(), robotCallback);
-        Log.d(TAG, "onCreate: "+mRobotAPI);
 
         setContentView(R.layout.activity_main);
 
         googleClassroomAppContext = this;
-
-        final Intent googleClassroomApp = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.classroom");
 
         btPresentation = findViewById(R.id.btPresentation);
         btPresentation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new clickHttpPost().execute(btPresentation.getText().toString());
                 presentationActivity();
-                robotAPI.motion.remoteControlHead(MotionControl.Direction.Head.UP);
-                //startActivity(googleClassroomApp);
+                robotAPI.robot.speak("OK Presentation");
             }
         });
 
@@ -82,6 +76,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btGroupDiscussion.getText().toString());
                 groupDiscussionActivity();
+                robotAPI.robot.speak("OK Group discussion");
             }
         });
 
@@ -90,6 +85,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btAfterClass.getText().toString());
                 afterClassActivity();
+                robotAPI.robot.speak("OK After class");
             }
         });
 
@@ -98,7 +94,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanLevelThree.getText().toString());
                 new deviceHttpPost().execute("5","hight");
-                mRobotAPIStatic.robot.speak("OK. Fan tun on level three");
+                robotAPI.robot.speak("OK. Fan tun on level three");
             }
         });
 
@@ -107,7 +103,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanLevelTwo.getText().toString());
                 new deviceHttpPost().execute("6","hight");
-                mRobotAPIStatic.robot.speak("OK. Fan tun on level two");
+                robotAPI.robot.speak("OK. Fan tun on level two");
             }
         });
 
@@ -116,7 +112,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanLevelOne.getText().toString());
                 new deviceHttpPost().execute("7","hight");
-                mRobotAPIStatic.robot.speak("OK. Fan tun on level one");
+                robotAPI.robot.speak("OK. Fan tun on level one");
             }
         });
 
@@ -125,7 +121,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanTurnOff.getText().toString());
                 new deviceHttpPost().execute("8","hight");
-                mRobotAPIStatic.robot.speak("OK. Fan tun off");
+                robotAPI.robot.speak("OK. Fan tun off");
             }
         });
 
@@ -134,7 +130,7 @@ public class MainActivity extends RobotActivity {
             public void onClick(View v) {
                 new clickHttpPost().execute(btFanRotate.getText().toString());
                 new deviceHttpPost().execute("9","hight");
-                mRobotAPIStatic.robot.speak("OK. Fan rotation");
+                robotAPI.robot.speak("OK. Fan rotation");
             }
         });
 
@@ -289,62 +285,41 @@ public class MainActivity extends RobotActivity {
             }
             else if(sIntentionID.equals("helloWorld")) {
                 String resultClassroomMode = RobotUtil.queryListenResultJson(jsonObject, "classroomMode", null);
-                Intent googleClassroomApp = googleClassroomAppContext.getPackageManager().getLaunchIntentForPackage("com.google.android.apps.classroom");
 
-                if(resultClassroomMode != null && !resultClassroomMode.equals("na") && (resultClassroomMode.equals("presentation_mode") || resultClassroomMode.equals("sharing_mode"))) {
-                    presentationActivity();
-                    mRobotAPIStatic.motion.remoteControlHead(MotionControl.Direction.Head.UP);
-                    googleClassroomAppContext.startActivity(googleClassroomApp);
-                }
-                else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("group_discussion_mode")) {
-                    groupDiscussionActivity();
-                }
-                else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("after_class_mode")) {
-                    afterClassActivity();
-                }
+                if(resultClassroomMode != null && !resultClassroomMode.equals("na") && (resultClassroomMode.equals("presentation_mode") || resultClassroomMode.equals("sharing_mode")))
+                    btPresentation.performClick();
+                else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("group_discussion_mode"))
+                    btGroupDiscussion.performClick();
+                else if (resultClassroomMode != null && !resultClassroomMode.equals("na") && resultClassroomMode.equals("after_class_mode"))
+                    btAfterClass.performClick();
 
                 String resultGoToLocation = RobotUtil.queryListenResultJson(jsonObject, "goToLocation", null);
-                if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("in_front"))) {
-                    mRobotAPIStatic.motion.goTo("in front of room");
-                }
-                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_one"))) {
-                    mRobotAPIStatic.motion.goTo("group one");
-                }
-                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_two"))) {
-                    mRobotAPIStatic.motion.goTo("group two");
-                }
-                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_three"))) {
-                    mRobotAPIStatic.motion.goTo("group three");
-                }
-                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_four"))) {
-                    mRobotAPIStatic.motion.goTo("group four");
-                }
-                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_five"))) {
-                    mRobotAPIStatic.motion.goTo("group five");
-                }
+
+                if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("in_front")))
+                    btInFront.performClick();
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_one")))
+                    btGroup1.performClick();
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_two")))
+                    btGroup2.performClick();
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_three")))
+                    btGroup3.performClick();
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_four")))
+                    btGroup4.performClick();
+                else if(resultGoToLocation != null && !resultGoToLocation.equals("na") && (resultGoToLocation.equals("group_five")))
+                    btGroup5.performClick();
 
                 String resultFanControl = RobotUtil.queryListenResultJson(jsonObject, "fanControl", null);
                 Log.d(TAG, "resultFanControl = " + resultFanControl);
-                if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_three"))) {
-                    new deviceHttpPost().execute("5","hight");
-                    mRobotAPIStatic.robot.speak("OK. Fan tun on level three");
-                }
-                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_two"))) {
-                    new deviceHttpPost().execute("6","hight");
-                    mRobotAPIStatic.robot.speak("OK. Fan tun on level two");
-                }
-                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_one"))) {
-                    new deviceHttpPost().execute("7","hight");
-                    mRobotAPIStatic.robot.speak("OK. Fan tun on level one");
-                }
-                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_turn_off"))) {
-                    new deviceHttpPost().execute("8","hight");
-                    mRobotAPIStatic.robot.speak("OK. Fan turn off");
-                }
-                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_rotation"))) {
-                    new deviceHttpPost().execute("9","hight");
-                    mRobotAPIStatic.robot.speak("OK. Fan rotation");
-                }
+                if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_three")))
+                    btFanLevelThree.performClick();
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_two")))
+                    btFanLevelTwo.performClick();
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_level_one")))
+                    btFanLevelOne.performClick();
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_turn_off")))
+                    btFanTurnOff.performClick();
+                else if(resultFanControl != null && !resultFanControl.equals("na") && (resultFanControl.equals("fan_rotation")))
+                    btFanRotate.performClick();
             }
 
         }
